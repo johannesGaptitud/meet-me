@@ -35,7 +35,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (process.env.PORT || 5000));
 
 // start app ======================================
 app.listen(app.get('port'), function() {
