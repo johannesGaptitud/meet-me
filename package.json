@@ -13,5 +13,8 @@
         "request"    : "latest",
         "bcrypt"     : "~0.8.0",
         "atob"       : "latest"
+    },
+    "scripts": {
+        "postinstall": "node_modules/.bin/bower install"
     }
 }
