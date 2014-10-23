@@ -1,6 +1,9 @@
 {
     "name"         : "meet-me",
     "version"      : "0.0.0",
+    "scripts": {
+        "postinstall": "bower cache clean && bower install"
+    },
     "description"  : "meet-me",
     "main"         : "server.js",
     "author"       : "Johannes Gunnbäck",
@@ -13,8 +16,5 @@
         "request"    : "latest",
         "bcrypt"     : "~0.8.0",
         "atob"       : "latest"
-    },
-    "scripts": {
-        "postinstall": "node_modules/.bin/bower install"
     }
 }
