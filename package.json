@@ -1,0 +1,17 @@
+{
+    "name"         : "meet-me",
+    "version"      : "0.0.0",
+    "description"  : "meet-me",
+    "main"         : "server.js",
+    "author"       : "Johannes Gunnbäck",
+    "dependencies" : {
+        "express"    : "~4.7.2",
+        "mongoose"   : "~3.6.2",
+        "morgan"	 : "~1.2.2",
+        "body-parser": "~1.5.2",
+        "method-override": "~2.1.2",
+        "request"    : "latest",
+        "bcrypt"     : "~0.8.0",
+        "atob"       : "latest"
+    }
+}

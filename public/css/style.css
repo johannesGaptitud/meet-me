@@ -1,0 +1,16 @@
+.page-header-links{ display: table; width: 100%; margin-bottom: 10.5px; margin-top: 21px;}
+.page-header-links h1{display: table-cell;}
+.page-header-links a{display: table-cell; text-align: right;}
+.angular-google-map-container { height: 400px; }
+.tag{margin-left: 10px; margin-bottom: 5px; display: inline-block !important;}
+.tag .remove{margin-left: 5px; color: #ffffff !important;}
+.block-link:hover .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+}

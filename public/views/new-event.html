@@ -1,0 +1,99 @@
+<div class="col-lg-2" ></div>
+<div class="col-lg-8" >
+    <div class="page-header-links">
+        <h1 >New Event</h1>
+    </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-6" >
+                <div class="form-group">
+                    <label for="eventName">Event name</label>
+                    <input type="text" class="form-control" id="eventName" ng-model="event.name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input jg-datepicker="event.date" type="text" class="form-control" id="eventDate" placeholder="mm/dd/yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" ng-model="event.description" rows="5" placeholder="Enter description" ></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> <a href=""  data-toggle="modal" data-target="#addTags">Add tags</a></div>
+                        <div class="panel-body">
+                            <div style="display: inline-block; position: relative;">
+                                <span ng-repeat="tag in event.tags" class="label label-success tag editbale">
+                                    {{tag}}
+                                    <a href="" class="remove" ng-click="removeTagFromEvent(tag)"><span  aria-hidden="true">&times;</span></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> <a href="" >Add photo</a></div>
+                        <div class="panel-body" id="filedrag" file-input="file" file-drag="uploadPhoto()" style="position: relative;" >
+                            <p>Drop a photo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" >
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" ng-keyup="autocompleet()" ng-model="event.location" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+                </div>
+             </div>
+        </div>
+        <div style="text-align: right;">
+            <button type="submit" ng-click="createEvent()" class="btn btn-primary">Create Event</button>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2" ></div>
+
+<div class="modal fade" id="addTags" tabindex="-1" role="dialog" aria-labelledby="addTagsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addTagsLabel">Add tags</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6" >
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="tagName" ng-model="tagToAdd" placeholder="Enter tag">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" ng-click="addTag()" class="btn btn-primary">Add</button>
+                            </div>
+                            <div lass="form-group">
+                                  <h5>Commonly used tags</h5>
+                                  <span ng-repeat="tag in commonTags" class="label label-primary tag editbale">
+                                    <a href="" style="color: #ffffff;" ng-click="addTag(tag)"> {{tag}}</a>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="position: relative;" >
+                        <span ng-repeat="tag in tagsToAdd" class="label label-success tag editbale">
+                            {{tag}}
+                            <a href="" class="remove" ng-click="removeTag(tag)"><span  aria-hidden="true">&times;</span></a>
+
+                        </span>
+                    </div>
+                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" ng-click="addTags()" class="btn btn-primary">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
