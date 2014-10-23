@@ -53,6 +53,28 @@ app.get('/event/list', function(req, res){
     })
 });
 
+app.get('/event/photo', function(req, res){
+    eventService.getPhoto(req.param('photoId'),function(error, photo){
+        if(error){
+            console.log(error);
+            res.send(error);
+        }else{
+            res.json(photo);
+        }
+    })
+});
+
+app.post('/event/savephoto', function(req, res){
+    eventService.savePhoto(req.body.src,function(error, photo){
+        if(error){
+            console.log(error);
+            res.send(error);
+        }else{
+            res.json(photo);
+        }
+    })
+});
+
 app.get('/event/userlist', function(req, res){
     eventService.listUserEvents(req.param('userId'), function(error, events){
         if(error){

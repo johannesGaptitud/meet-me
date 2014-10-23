@@ -19,6 +19,19 @@ app.service('EventService', function($http){
         }).success(callback);
     }
 
+    this.savePhoto = function(photo, callback){
+        $http.post('/event/savephoto', {src: photo}).success(callback);
+    }
+
+    this.getPhoto = function(photoId, callback){
+        $http.get('/event/photo',{
+            params: {
+                photoId: photoId
+            }
+        }).success(callback);
+    }
+
+
     this.getEventTags = function(callback){
         $http.get('/event/tags').success(callback);
     }
