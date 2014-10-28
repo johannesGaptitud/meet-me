@@ -5,7 +5,7 @@ app.directive('jgDatepicker', function($parse){
     return{
         restrict: 'AE',
         link: function(scope, elem, attrs){
-            var modelGet = $parse(attrs.jgDatepicker);
+            var modelGet = $parse(attrs.ngModel);
             var modelSet = modelGet.assign;
             var updateModel = function (e) {
                 var value = $(elem[0]).val();

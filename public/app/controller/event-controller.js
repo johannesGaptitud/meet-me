@@ -22,14 +22,14 @@ app.controller('EventController', function($scope, $location, MapService, EventS
     $scope.createEvent = function(){
         if($scope.event.photo){
             EventService.savePhoto($scope.event.photo, function(photo){
-                createEvent(photo._id);
+                createEvent(photo.url);
             });
         }else{
             createEvent();
         }
     }
 
-    function createEvent(photoId){
+    function createEvent(photoUrl){
         var userId = SessionService.getUser().id;
         EventService.createEvent({
             user_id: userId,
@@ -37,7 +37,7 @@ app.controller('EventController', function($scope, $location, MapService, EventS
             date: $scope.event.date,
             description: $scope.event.description,
             tags: $scope.event.tags,
-            photo: photoId,
+            photo: photoUrl,
             location: {
                 name: $scope.event.location,
                 latitude: $scope.map.center.latitude,

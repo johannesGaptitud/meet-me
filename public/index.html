@@ -10,6 +10,7 @@
     <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" ></script>
     <script src="/bower_components/jquery-ui/jquery-ui.min.js" type="text/javascript" ></script>
     <script src="/bower_components/json2/json2.js" type="text/javascript" ></script>
+    <script src="/bower_components/angular-facebook/lib/angular-facebook.js" type="text/javascript" ></script>
     <script src="external/bootstrap.min.js"></script>
     <script src="app/app.js" type="text/javascript" ></script>
     <script src="app/service/session-service.js" type="text/javascript" ></script>
@@ -20,6 +21,7 @@
     <script src="app/controller/main-menu-controller.js" type="text/javascript" ></script>
     <script src="app/controller/event-controller.js" type="text/javascript" ></script>
     <script src="app/controller/eventlist-controller.js" type="text/javascript" ></script>
+    <script src="app/controller/event-details-controller.js" type="text/javascript" ></script>
     <script src="app/directives/custome-directives.js" type="text/javascript" ></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -28,6 +30,7 @@
 </head>
 <body ng-app="MeetMeWebApp">
     <div ng-include="'views/main-menu.html'" ></div>
+
     <div ng-view></div>
 </body>
 </html>

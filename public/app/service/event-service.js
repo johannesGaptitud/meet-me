@@ -23,14 +23,21 @@ app.service('EventService', function($http){
         $http.post('/event/savephoto', {src: photo}).success(callback);
     }
 
-    this.getPhoto = function(photoId, callback){
-        $http.get('/event/photo',{
+    this.removeEvent = function(eventId, callback){
+        $http.get('/event/remove',{
             params: {
-                photoId: photoId
+                eventId: eventId
             }
         }).success(callback);
     }
 
+    this.getEvent = function(eventId, callback){
+        $http.get('/event/details',{
+            params: {
+                eventId: eventId
+            }
+        }).success(callback);
+    }
 
     this.getEventTags = function(callback){
         $http.get('/event/tags').success(callback);

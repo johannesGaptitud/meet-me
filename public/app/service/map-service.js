@@ -41,7 +41,15 @@ app.service('MapService', ['GoogleMapApi'.ns(), 'IsReady'.ns(), function(GoogleM
     }
 
     this.addMarkOnMap = function(possition, map, callback){
-        if(possition.address){
+        console.log(possition);
+        if(possition.longitude && possition.latitude){
+            map.center.longitude = possition.longitude;
+            map.center.latitude = possition.latitude;
+            var myLatlng = new google.maps.LatLng(map.center.latitude,map.center.longitude);
+            marker = new google.maps.Marker({position: myLatlng});
+            marker.setMap(map.gmapRef);
+        }
+        else if(possition.address){
             geocoder.geocode( { 'address': possition.address}, function(results, status) {
                 var error, marker;
                 if (status == google.maps.GeocoderStatus.OK) {

@@ -4,7 +4,7 @@
         <h1 >My Events</h1>
         <a href="#/newevent" ng-click="initNewEvent()" > New event </a>
     </div>
-    <div class="well block-link" ng-click="goToEvent()" ng-repeat="event in events" style="position: relative; {{photoStyle(event.photo)}}">
+    <div class="well block-link" ng-click="goToEvent(event)" ng-repeat="event in events" style="position: relative; {{photoStyle(event.photo)}}">
         <div class="overlay"></div>
         <h4 style="display: inline-block;">{{event.name}}</h4>
         <div style="position: absolute; right: 5px; top: 5px;">

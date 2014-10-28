@@ -1,0 +1,63 @@
+<div class="col-lg-2" ></div>
+<div class="col-lg-8" >
+    <div class="panel panel-default"  >
+        <div class="panel-heading" style="{{headerImg}}">
+            <h1 >{{event.name}}</h1>
+            <div style="text-align: right;">
+                <span ng-repeat="tag in event.tags" class="label label-primary tag">
+                    {{tag}}
+                </span>
+            </div>
+        </div>
+        <div class="panel-body"  style="position: relative">
+            <div class="row">
+                <div class="col-lg-6" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Description
+                            <a href="" style="float: right;" ng-hide="editProperties.editDescription" ng-click="editProperties.editDescription = true">edit</a>
+                            <a href="" style="float: right;" ng-show="editProperties.editDescription" ng-click="editProperties.editDescription = false">done</a>
+                        </div>
+                        <div class="panel-body"  >
+                            <div ng-hide="editProperties.editDescription">{{event.description}}</div>
+                            <textarea ng-show="editProperties.editDescription" class="form-control" id="editdescription" ng-model="event.description" rows="5" placeholder="Enter description" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Attending</div>
+                        <div class="panel-body"  >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <div ng-hide="editProperties.editDateLocation" >
+                        {{event.location.name}} - {{event.date}}
+                        <div style="float: right;">
+                            <a href="" ng-hide="editProperties.editDateLocation" ng-click="editProperties.editDateLocation = true">edit</a>
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group" ng-show="editProperties.editDateLocation" >
+                            <input type="text" class="form-control" id="editlocation" ng-keyup="autocompleet()" ng-model="event.location.name" placeholder="Enter location">
+                            <input jg-datepicker ng-model="event.date" type="text" class="form-control" id="editeventDate" placeholder="mm/dd/yyyy">
+
+                        </div>
+                        <div style="float: right;">
+                            <a href=""  ng-show="editProperties.editDateLocation" ng-click="editProperties.editDateLocation = false">done</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+            </div>
+            <a href="" ng-click="removeEvent()" >delete</a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2" ></div>
+

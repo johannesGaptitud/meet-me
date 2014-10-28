@@ -1,1 +1,44 @@
-event details
+<div class="col-lg-2" ></div>
+<div class="col-lg-8" >
+     <div class="panel panel-default"  >
+         <div class="panel-heading" style="{{headerImg}}">
+            <h1 >{{event.name}}</h1>
+             <div style="text-align: right;">
+                <span ng-repeat="tag in event.tags" class="label label-primary tag">
+                    {{tag}}
+                </span>
+             </div>
+         </div>
+        <div class="panel-body"  style="position: relative">
+            <div class="row">
+                <div class="col-lg-6" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Description
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Attending</div>
+                        <div class="panel-body"  >
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="form-group">
+                <div>
+                    <div ng-hide="editProperties.editDateLocation" >
+                    {{event.location.name}} - {{event.date}}
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2" ></div>
+

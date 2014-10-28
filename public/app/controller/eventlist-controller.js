@@ -5,10 +5,6 @@ app.controller('EventListController', function($scope, $rootScope, $location, Ev
 
     $scope.init = function(){
         $scope.events = [];
-        if(!$rootScope.photos){
-            $rootScope.photos = {};
-            console.log('init root');
-        }
         var userId = SessionService.getUser().id;
         EventService.listUserEvents(userId, function(eventList){
             $scope.events = eventList;
@@ -17,21 +13,14 @@ app.controller('EventListController', function($scope, $rootScope, $location, Ev
 
     }
 
-    $scope.photoStyle = function(photoId){
-        if(photoId){
-            if(!$rootScope.photos[photoId]){
-                $rootScope.photos[photoId] = "loading";
-                EventService.getPhoto(photoId, function(photo){
-                    $scope.photos[photoId] = photo.src;
-                    console.log(photo.src);
-                })
-            }
-            return "background: center no-repeat url("+$rootScope.photos[photoId]+");";
+    $scope.photoStyle = function(photoUrl){
+        if(photoUrl){
+            return "background: center no-repeat url("+photoUrl+");";
         }
     }
 
-    $scope.goToEvent = function(){
-        $location.path('/eventdetails');
+    $scope.goToEvent = function(event){
+        $location.path('/eventdetails/'+ event._id +'/' +SessionService.getUser().id);
     }
 
     $scope.init();

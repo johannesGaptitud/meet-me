@@ -10,6 +10,7 @@
         "lodash": "latest",
         "jquery": "latest",
         "json2": "latest",
-        "jquery-ui": "latest"
+        "jquery-ui": "latest",
+        "angular-facebook": "latest"
     }
 }
